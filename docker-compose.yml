@@ -1,0 +1,10 @@
+version: "3.3"
+services:
+  zookeeper:
+    build: ./kafka
+    command: ["bin/zookeeper-server-start.sh", "config/zookeeper.properties"]
+  kafka:
+    ports:
+      - 9092:9092
+    build: ./kafka
+    command: ["bin/kafka-server-start.sh", "config/server.properties"]
